@@ -1,10 +1,12 @@
 pipeline {
 
     agent any
+    options {
+        skipDefaultCheckout()
+    }
     stages {
         stage('Checkout Codebase'){
             steps {
-                cleanWs()
                 checkout scm: [$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: 
                 [[credentialsId: 'github-ssh-key', url: 'git@github.com:jpbraganca/JavaProjectTenis.git']]]
             }
