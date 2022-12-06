@@ -21,12 +21,6 @@ pipeline {
                 sh 'cd src/ ; java -cp ../lib/junit-4.12.jar:../lib/hamcrest-core-1.3.jar:. org.junit.runner.JUnitCore test.ProgramaTest'
             }
         }
-
-        stage('Deploy') {
-            steps{
-                sh 'cd src/control ; java -cp control Programa'
-            }
-        }
     }
 
 }
